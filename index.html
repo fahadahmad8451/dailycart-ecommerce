@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DailyCart - Online Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header" id="home">
+        <a href="#home" class="logo">Daily<span>Cart</span></a>
+
+        <nav class="navbar" id="navbar">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="cart-button" id="cart-button">
+            Cart <span id="cart-count">0</span>
+        </button>
+        <button class="menu-button" id="menu-button" aria-label="Open menu">☰</button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <p class="small-heading">WELCOME TO DAILYCART</p>
+                <h1>Find things you<br> <span>will love.</span></h1>
+                <p>Shop useful everyday products at simple prices. Browse our collection and find something for you.</p>
+                <a href="#products" class="main-button">Shop now</a>
+            </div>
+            <div class="hero-picture">
+                <div class="hero-circle"></div>
+                <div class="hero-box"><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85" alt="Everyday tote bag" loading="lazy" onerror="this.style.display='none'; this.parentElement.textContent='🛍️'"></div>
+                <div class="hero-note">Everyday picks<br><strong>Made simple</strong></div>
+            </div>
+        </section>
+
+        <section class="benefits" id="about">
+            <div><span>✓</span><div><strong>Easy shopping</strong><p>Simple and clear</p></div></div>
+            <div><span>♡</span><div><strong>Good products</strong><p>Everyday essentials</p></div></div>
+            <div><span>↗</span><div><strong>Quick checkout</strong><p>Demo order process</p></div></div>
+        </section>
+
+        <section class="products-section" id="products">
+            <div class="section-title">
+                <div>
+                    <p class="small-heading">OUR COLLECTION</p>
+                    <h2>Popular products</h2>
+                    <p class="section-description">Choose your favourite items from our collection.</p>
+                </div>
+                <p id="product-count">8 products</p>
+            </div>
+
+            <div class="filters">
+                <input type="search" id="search-input" placeholder="Search products..." aria-label="Search products">
+                <select id="category-filter" aria-label="Filter by category">
+                    <option value="all">All categories</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Home">Home</option>
+                    <option value="Tech">Tech</option>
+                    <option value="Stationery">Stationery</option>
+                </select>
+            </div>
+
+            <div class="product-grid" id="product-list"></div>
+            <p class="no-products" id="no-products">No products found. Try another search.</p>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div>
+                <p class="small-heading">GET IN TOUCH</p>
+                <h2>Have a question?</h2>
+                <p>Send us a message using the form. This is a front-end practice form.</p>
+            </div>
+            <form id="contact-form" class="contact-form">
+                <label for="contact-name">Your name</label>
+                <input type="text" id="contact-name" required minlength="2" placeholder="Enter your name">
+                <label for="contact-email">Email address</label>
+                <input type="email" id="contact-email" required placeholder="Enter your email">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" required minlength="5" rows="3" placeholder="Write your message"></textarea>
+                <button class="main-button" type="submit">Send message</button>
+                <p id="contact-feedback" class="feedback" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="#home" class="logo">Daily<span>Cart</span></a>
+        <p>Student e-commerce practice project made with HTML, CSS and JavaScript.</p>
+        <p>© <span id="year"></span> DailyCart</p>
+    </footer>
+
+    <div class="page-shade" id="page-shade"></div>
+    <aside class="cart-panel" id="cart-panel" aria-label="Shopping cart">
+        <div class="cart-heading">
+            <div><p class="small-heading">YOUR ITEMS</p><h2>Shopping cart</h2></div>
+            <button id="close-cart" class="close-button" aria-label="Close cart">×</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <p id="empty-cart" class="empty-cart">Your cart is empty. Add a product to get started.</p>
+        <div class="cart-bottom" id="cart-bottom">
+            <div class="total-row"><span>Total</span><strong id="cart-total">Rs. 0</strong></div>
+            <button id="checkout-button" class="main-button checkout-button">Checkout</button>
+            <p class="note">Demo checkout only. No real payment is processed.</p>
+        </div>
+    </aside>
+
+    <dialog id="checkout-dialog" class="checkout-dialog">
+        <div class="cart-heading">
+            <div><p class="small-heading">FINAL STEP</p><h2>Checkout</h2></div>
+            <button id="close-checkout" class="close-button" aria-label="Close checkout">×</button>
+        </div>
+        <p class="checkout-total">Order total: <strong id="checkout-total">Rs. 0</strong></p>
+        <form id="checkout-form" class="checkout-form">
+            <label for="customer-name">Full name</label>
+            <input type="text" id="customer-name" required minlength="2" placeholder="Your full name">
+            <label for="customer-email">Email address</label>
+            <input type="email" id="customer-email" required placeholder="you@example.com">
+            <label for="customer-address">Delivery address</label>
+            <textarea id="customer-address" required minlength="8" rows="3" placeholder="Your full address"></textarea>
+            <label for="payment-method">Payment method</label>
+            <select id="payment-method">
+                <option>Cash on delivery (demo)</option>
+                <option>Demo card (no payment taken)</option>
+            </select>
+            <p class="note">This form does not send information to a server.</p>
+            <button class="main-button checkout-button" type="submit">Place demo order</button>
+            <p id="checkout-feedback" class="feedback" role="status"></p>
+        </form>
+        <div id="order-success" class="order-success">
+            <div class="success-mark">✓</div>
+            <h3>Order created!</h3>
+            <p id="order-message"></p>
+            <p class="note">This is only a demo confirmation. No real order was sent.</p>
+            <button id="finish-order" class="main-button checkout-button">Continue shopping</button>
+        </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
